@@ -8,11 +8,15 @@ var LibraryEntryView = Backbone.View.extend({
   events: {
     'click': function() {
       this.model.play();
+      this.model.enqueue();
     }
   },
 
   render: function() {
-    return this.$el.html(this.template(this.model.attributes));
+    var attr = this.model.attributes;
+    var templatedAttr = this.template(attr);
+    // setting html of $el to interpolated template (cell in a table)
+    return this.$el.html(templatedAttr);
   }
 
 });
