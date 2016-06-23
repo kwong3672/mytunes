@@ -10,6 +10,7 @@ var Songs = Backbone.Collection.extend({
         data.results.forEach(function(song) {
           self.add(song);
         });
+        self.trigger('sync');
       }
     };
     Backbone.sync('read', this, options);
